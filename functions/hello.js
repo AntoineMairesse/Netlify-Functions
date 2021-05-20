@@ -17,6 +17,7 @@ exports.handler = async function(event, context, callback) {
         callback(null, {
             statusCode: 200,
             headers: {
+                'mode': 'no-cors',
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Credentials': 'true',
                 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
