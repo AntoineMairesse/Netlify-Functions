@@ -4,8 +4,9 @@ exports.handler = async function(event, context, callback) {
         const { data } = await axios.get('https://api.genius.com/songs/' + event.queryStringParameters.param + '?access_token=ZgYwtB7yjBMJz9Kaz2A7By7QBS59Ekeu_30QPjOBHgcZ1TcyDGGsFFzOIPLCw7mA', {
             headers: {
                 'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': 'true',
                 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+                'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
             }
         });
         let response = [];
@@ -17,8 +18,9 @@ exports.handler = async function(event, context, callback) {
             statusCode: 200,
             headers: {
                 'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': 'true',
                 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+                'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
             },
             body: JSON.stringify(response),
         });
