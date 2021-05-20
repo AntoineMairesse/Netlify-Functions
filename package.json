@@ -1,10 +1,8 @@
 {
-  "name": "netlify functions",
+  "name": "netfunctions",
   "version": "1.0.0",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "header": "^0.1.1",
-    "headers": "^0.9.6",
-    "node-fetch": "^2.6.1"
+  "dependencies": {},
+  "devDependencies": {
+    "axios": "^0.21.1"
   }
 }
