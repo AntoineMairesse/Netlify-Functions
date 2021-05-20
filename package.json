@@ -1,7 +1,10 @@
 {
   "name": "netfunctions",
   "version": "1.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "node-fetch": "^2.6.1"
+  },
   "devDependencies": {
     "axios": "^0.21.1"
   }

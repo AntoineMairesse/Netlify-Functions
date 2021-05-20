@@ -1,7 +1,7 @@
 const axios = require('axios');
 exports.handler = async function(event, context, callback) {
     try{
-        const { data } = await axios.get(event.queryStringParameters.param + '?access_token=ZgYwtB7yjBMJz9Kaz2A7By7QBS59Ekeu_30QPjOBHgcZ1TcyDGGsFFzOIPLCw7mA', {
+        const { data } = await axios.get(encodeURIComponent(event.queryStringParameters.param) + '?access_token=ZgYwtB7yjBMJz9Kaz2A7By7QBS59Ekeu_30QPjOBHgcZ1TcyDGGsFFzOIPLCw7mA', {
             headers: {
                 'mode': 'no-cors',
                 'Access-Control-Allow-Origin': '*',

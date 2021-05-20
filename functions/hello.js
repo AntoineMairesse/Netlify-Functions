@@ -1,7 +1,8 @@
 const axios = require('axios');
 exports.handler = async function(event, context, callback) {
+    console.log(event.queryStringParameters.param)
     try{
-        const { data } = await axios.get('https://api.genius.com/search?q=' + event.queryStringParameters.param + '&access_token=ZgYwtB7yjBMJz9Kaz2A7By7QBS59Ekeu_30QPjOBHgcZ1TcyDGGsFFzOIPLCw7mA', {
+        const { data } = await axios.get('https://api.genius.com/search?q=' + encodeURIComponent(event.queryStringParameters.param) + '&access_token=ZgYwtB7yjBMJz9Kaz2A7By7QBS59Ekeu_30QPjOBHgcZ1TcyDGGsFFzOIPLCw7mA', {
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Credentials': 'true',
