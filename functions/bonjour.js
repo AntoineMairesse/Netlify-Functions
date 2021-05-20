@@ -1,7 +1,13 @@
 const axios = require('axios');
 exports.handler = async function(event, context, callback) {
     try{
-        const { data } = await axios.get('https://api.genius.com/songs/' + event.queryStringParameters.param + '?access_token=ZgYwtB7yjBMJz9Kaz2A7By7QBS59Ekeu_30QPjOBHgcZ1TcyDGGsFFzOIPLCw7mA');
+        const { data } = await axios.get('https://api.genius.com/songs/' + event.queryStringParameters.param + '?access_token=ZgYwtB7yjBMJz9Kaz2A7By7QBS59Ekeu_30QPjOBHgcZ1TcyDGGsFFzOIPLCw7mA', {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+            }
+        });
         let response = [];
         // Grab the items and re-format to the fields we want
         if (data) {
@@ -9,6 +15,11 @@ exports.handler = async function(event, context, callback) {
         }
         callback(null, {
             statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+            },
             body: JSON.stringify(response),
         });
     } catch (err) {
